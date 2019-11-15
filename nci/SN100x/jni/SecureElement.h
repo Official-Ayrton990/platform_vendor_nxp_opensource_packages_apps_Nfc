@@ -69,7 +69,6 @@ public:
   uint8_t mNewPipeId;
 
   bool mIsWiredModeOpen;
-  bool mIsSeIntfActivated;
   uint32_t SmbTransceiveTimeOutVal;/* maximum time to wait for APDU response */
   bool mErrorRecovery;
   SyncEvent   mPwrLinkCtrlEvent;

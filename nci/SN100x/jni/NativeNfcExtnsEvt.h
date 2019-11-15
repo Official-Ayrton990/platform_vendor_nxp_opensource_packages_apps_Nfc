@@ -22,7 +22,6 @@ notified to external JNI about JNI events*/
 #pragma once
 class NativeNfcExtnsEvt {
  public:
-  virtual int notifyNfcEvt(std::string evt, void* evt_data = NULL,
-                           void* evt_code = NULL);
+  virtual int notifyNfcEvt(std::string evt, void* evt_data = NULL);
   virtual ~NativeNfcExtnsEvt();
 };

@@ -78,21 +78,17 @@ public interface DeviceHost {
         /**
          * Notifies SWP Reader Events.
          */
-        public void onReaderRequestedFail();
+        public void onETSIReaderRequestedEvent(boolean istechA, boolean istechB);
 
-        public void onReaderStartSuccess();
+        public void onETSIReaderRequestedFail(int FailCause);
 
-        public void onReaderStartFail();
+        public void onETSIReaderModeStartConfig(int eeHandle);
 
-        public void onReaderRestart();
+        public void onETSIReaderModeStopConfig(int disc_ntf_timeout);
 
-        public void onReaderStopSuccess();
+        public void onETSIReaderModeSwpTimeout(int disc_ntf_timeout);
 
-        public void onReaderStopFail();
-
-        public void onReaderRemoveCard();
-
-        public void onReaderTimeout();
+        public void onETSIReaderModeRestart();
 
         public void onNfcTransactionEvent(byte[] aid, byte[] data, String seName);
     }
@@ -318,6 +314,18 @@ public interface DeviceHost {
 
     public void doResonantFrequency(boolean isResonantFreq);
 
+    void setEtsiReaederState(int newState);
+
+    int getEtsiReaederState();
+
+    void etsiReaderConfig(int eeHandle);
+
+    void etsiResetReaderConfig();
+
+    void notifyEEReaderEvent(int evt);
+
+    void etsiInitConfig();
+
     void stopPoll(int mode);
 
     void startPoll();
@@ -325,8 +333,6 @@ public interface DeviceHost {
     int mposSetReaderMode(boolean on);
 
     boolean mposGetReaderMode();
-
-    public int doNfcSelfTest(int type);
 
     public int getNciVersion();
 
@@ -355,6 +361,4 @@ public interface DeviceHost {
     public int setPreferredSimSlot(int uiccSlot);
     public int doSetFieldDetectMode(boolean mode);
     public boolean isFieldDetectEnabled();
-    public int doWriteT4tData(byte[] fileId, byte[] data, int length);
-    public byte[] doReadT4tData(byte[] fileId);
 }

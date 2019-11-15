@@ -109,7 +109,6 @@ class RoutingManager {
  public:
 #if(NXP_EXTNS == TRUE)
   uint32_t mDefaultGsmaPowerState;
-  static const uint8_t HOST_PWR_STATE = 0x11;
 #endif
   static RoutingManager& getInstance();
   bool initialize(nfc_jni_native_data* native);

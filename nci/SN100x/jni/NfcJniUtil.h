@@ -174,6 +174,5 @@ int register_com_android_nfc_NativeLlcpSocket(JNIEnv* e);
 #if (NXP_EXTNS == TRUE)
 int register_com_android_nfc_NativeNfcSecureElement (JNIEnv *e);
 int register_com_android_nfc_NativeNfcMposManager (JNIEnv *e);
-int register_com_android_nfc_NativeT4tNfcee(JNIEnv *e);
 #endif
 }  // namespace android
